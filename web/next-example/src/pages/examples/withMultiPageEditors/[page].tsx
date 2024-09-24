@@ -22,7 +22,7 @@ const DynamicPageComponent = () => {
     <div>
       <Head />
       <EveryPageContent pageId={router.query.page} />
-      <CheckSourceCode directLink="https://github.com/Darginec05/Yoopta-Editor/blob/master/web/next-example/src/pages/examples/withMultiPageEditors/[page].tsx" />
+      {/* <CheckSourceCode directLink="https://github.com/Darginec05/Yoopta-Editor/blob/master/web/next-example/src/pages/examples/withMultiPageEditors/[page].tsx" /> */}
       <Sheet title="List of pages" description={<></>} items={pages} path={router.asPath} />
     </div>
   );
