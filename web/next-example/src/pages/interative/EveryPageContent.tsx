@@ -3,7 +3,6 @@ import YooptaEditor, {
   YooptaContentValue,
   generateId,
 } from '@yoopta/editor';
-import { withSavingToDatabaseValue } from './initValue';
 
 import Paragraph from '@yoopta/paragraph';
 import Blockquote from '@yoopta/blockquote';
@@ -112,99 +111,53 @@ function EveryPageContent({ pageId }) {
 
 
 
-  // const editor = useMemo(() => createYooptaEditor(), []);
-  // const selectionRef = useRef(null);
-  // const [pageContent, setPageContent] = useState<YooptaContentValue | null>(null);
-  // const [editorId, setEditorId] = useState<string>(generateId());
-
-  // useEffect(() => {
-  //   if (pageId) {
-  //     const pageData = PAGES_DATA[pageId];
-
-  //     if (pageData) {
-  //       setEditorId(generateId());
-  //       setPageContent(pageData.content);
-  //     }
-  //   }
-  // }, [pageId]);
-
-  // function handleChange(value: any) {
-  //   console.log('value', value);
-  // }
-
-  // useEffect(() => {
-  //   editor.on('change', handleChange);
-  //   return () => {
-  //     // [IMPORTANT] - unsubscribe from event on unmount
-  //     editor.off('change', handleChange);
-  //   };
-  // }, [pageId, editor]);
-
-  // return (
-  //   <div className="md:py-[100px] md:pl-[200px] md:pr-[80px] px-[20px] pt-[80px] pb-[40px] flex flex-col justify-center items-center">
-  //     <div ref={selectionRef}>
-  //       {pageId && pageContent && (
-  //         <YooptaEditor
-  //           // [!!!NOTE] provide this prop
-  //           key={editorId}
-  //           editor={editor}
-  //           plugins={plugins}
-  //           tools={TOOLS}
-  //           marks={MARKS}
-  //           selectionBoxRoot={selectionRef}
-  //           value={pageContent}
-  //         />
-  //       )}
-  //     </div>
-  //   </div>
-  // );
-
   const editor = useMemo(() => createYooptaEditor(), []);
   const selectionRef = useRef(null);
+  const [pageContent, setPageContent] = useState<YooptaContentValue | null>(null);
+  const [editorId, setEditorId] = useState<string>(generateId());
 
-  const fetchToServer = async (data) => {
-    //...your async call to server
-    console.log('SUBMITED DATA', data);
-    alert('check your content data in console');
-  };
+  useEffect(() => {
+    if (pageId) {
+      const pageData = PAGES_DATA[pageId];
 
-  const onSaveToServer = async () => {
-    const editorContent = editor.getEditorValue();
-    await fetchToServer(editorContent);
-  };
+      if (pageData) {
+        setEditorId(generateId());
+        setPageContent(pageData.content);
+      }
+    }
+  }, [pageId]);
 
-  function handleChange(value) {
-    console.log('DATA ON CHANGE', value);
+  function handleChange(value: any) {
+    console.log('value', value);
   }
 
   useEffect(() => {
     editor.on('change', handleChange);
     return () => {
+      // [IMPORTANT] - unsubscribe from event on unmount
       editor.off('change', handleChange);
     };
-  }, [editor]);
+  }, [pageId, editor]);
 
   return (
-    <div
-      className="md:py-[100px] md:pl-[200px] md:pr-[80px] px-[20px] pt-[80px] pb-[40px] flex flex-col justify-center items-center"
-      ref={selectionRef}
-    >
-      <button
-        type="button"
-        onClick={onSaveToServer}
-        className="bg-[#007aff] text-[14px] text-nowrap my-2 mr-0 md:mr-4 text-[#fff] max-w-[100px] px-4 py-2 rounded-md"
-      >
-        Save data
-      </button>
-      <YooptaEditor
-        editor={editor}
-        plugins={plugins}
-        tools={TOOLS}
-        marks={MARKS}
-        selectionBoxRoot={selectionRef}
-        value={withSavingToDatabaseValue}
-      />
-    </div>)
+    <div className="md:py-[100px] md:pl-[200px] md:pr-[80px] px-[20px] pt-[80px] pb-[40px] flex flex-col justify-center items-center">
+      <div ref={selectionRef}>
+        {pageId && pageContent && (
+          <YooptaEditor
+            // [!!!NOTE] provide this prop
+            key={editorId}
+            editor={editor}
+            plugins={plugins}
+            tools={TOOLS}
+            marks={MARKS}
+            selectionBoxRoot={selectionRef}
+            value={pageContent}
+          />
+        )}
+      </div>
+    </div>
+  );
+
 }
 
 export { EveryPageContent };
