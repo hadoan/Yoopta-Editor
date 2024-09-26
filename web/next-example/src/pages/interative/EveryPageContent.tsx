@@ -101,7 +101,7 @@ const TOOLS = {
 
 const MARKS = [Bold, Italic, CodeMark, Underline, Strike, Highlight];
 
-function EveryPageContent({ pageId }: any) {
+export default function EveryPageContent({ pageId }: any) {
   const editor = useMemo(() => createYooptaEditor(), []);
   const selectionRef = useRef(null);
   const [pageContent, setPageContent] = useState<YooptaContentValue | null>(null);
@@ -149,5 +149,3 @@ function EveryPageContent({ pageId }: any) {
     </div>
   );
 }
-
-export { EveryPageContent };

@@ -2,7 +2,7 @@ import { Head } from '@/components/Head/Head';
 import { useRouter } from 'next/router';
 import dynamic from 'next/dynamic';
 import PAGES_DATA from '../../components/examples/withMultiPageEditors/db.json';
-import { EveryPageContent } from './EveryPageContent';
+import EveryPageContent from './EveryPageContent';
 import { CheckSourceCode } from '@/components/CheckSourceCode/CheckSourceCode';
 
 const Sheet = dynamic(() => import('@/components/ui/sheet').then((mod) => mod.Sheet), { ssr: false });
