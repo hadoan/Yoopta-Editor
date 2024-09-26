@@ -1,8 +1,4 @@
-import YooptaEditor, {
-  createYooptaEditor,
-  YooptaContentValue,
-  generateId,
-} from '@yoopta/editor';
+import YooptaEditor, { createYooptaEditor, YooptaContentValue, generateId } from '@yoopta/editor';
 
 import Paragraph from '@yoopta/paragraph';
 import Blockquote from '@yoopta/blockquote';
@@ -105,12 +101,7 @@ const TOOLS = {
 
 const MARKS = [Bold, Italic, CodeMark, Underline, Strike, Highlight];
 
-function EveryPageContent({ pageId }) {
-
-
-
-
-
+function EveryPageContent({ pageId }: any) {
   const editor = useMemo(() => createYooptaEditor(), []);
   const selectionRef = useRef(null);
   const [pageContent, setPageContent] = useState<YooptaContentValue | null>(null);
@@ -157,7 +148,6 @@ function EveryPageContent({ pageId }) {
       </div>
     </div>
   );
-
 }
 
 export { EveryPageContent };

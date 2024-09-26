@@ -28,6 +28,4 @@ const DynamicPageComponent = () => {
   );
 };
 
-
-
 export default DynamicPageComponent;
