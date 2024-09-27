@@ -104,11 +104,11 @@
                 "type": "link",
                 "children": [
                   {
-                    "text": "https://app.usecopi.com/interative/page_1"
+                    "text": "https://app.usecopi.com/iterative"
                   }
                 ],
                 "props": {
-                  "url": "https://app.usecopi.com/interative/page_1",
+                  "url": "https://app.usecopi.com/iterative",
                   "target": "_self",
                   "rel": "noopener noreferrer"
                 }

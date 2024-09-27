@@ -14,7 +14,7 @@ const DynamicPageComponent = () => {
     return {
       title: PAGES_DATA[pageId].title,
       id: pageId,
-      href: `/interative/${pageId}`,
+      href: `/iterative/${pageId}`,
     };
   });
 
