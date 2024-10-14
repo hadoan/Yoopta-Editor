@@ -32,7 +32,7 @@
             "type": "paragraph",
             "children": [
               {
-                "text": "Greetings - Team Iterative"
+                "text": "Greetings"
               }
             ],
             "props": {
@@ -82,11 +82,11 @@
                 "type": "link",
                 "children": [
                   {
-                    "text": "https://app.usecopi.com/iterative"
+                    "text": "https://app.usecopi.com/demo"
                   }
                 ],
                 "props": {
-                  "url": "https://app.usecopi.com/iterative",
+                  "url": "https://app.usecopi.com/demo",
                   "target": "_self",
                   "rel": "noopener noreferrer"
                 }
